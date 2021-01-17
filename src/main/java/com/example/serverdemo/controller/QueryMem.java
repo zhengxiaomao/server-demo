@@ -21,9 +21,11 @@ public class QueryMem {
 
     @RequestMapping(value = "/{ip}/metrics/mem/{startTime}/{endTime}",method = RequestMethod.GET)
     @ResponseBody
-    public HashMap queryMem(@PathVariable String ip,@PathVariable String startTime,@PathVariable String endTime){
+    public Map queryMem(@PathVariable String ip,@PathVariable String startTime,@PathVariable String endTime){
 
         return query.queryMem(ip,startTime,endTime);
 
     }
+
+
 }

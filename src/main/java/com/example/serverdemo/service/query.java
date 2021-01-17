@@ -25,9 +25,9 @@ public class query {
     @Autowired
     NetDao netDao;
 
-    public HashMap queryMem(String ip,String startTime,String endTime){
+    public Map queryMem(String ip,String startTime,String endTime){
 
-        HashMap hm = new HashMap();
+        Map hm = new HashMap();
         List result= memDao.select(ip,startTime,endTime);
         System.out.println(startTime);
         for(int i=0;i<result.size();i++){
@@ -45,6 +45,17 @@ public class query {
             hm1.put(i,result.get(i));
         }
         return hm1;
+    }
+
+    public Map queryCpu(String ip,String startTime,String endTime){
+
+        Map hm2 = new HashMap();
+        List result= cpuDao.select(ip,startTime,endTime);
+
+        for(int i=0;i<result.size();i++){
+            hm2.put(i,result.get(i));
+        }
+        return hm2;
     }
 
 

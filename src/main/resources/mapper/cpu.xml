@@ -4,11 +4,23 @@
 
 <mapper namespace="com.example.serverdemo.dao.CpuDao">
 
-    <insert id="insert" parameterType="com.example.serverdemo.entity.Cpu"  useGeneratedKeys="true">
-        <selectKey keyProperty="id" resultType="int" order="AFTER">
-            SELECT last_insert_id();
-        </selectKey>
+    <insert id="insert" parameterType="com.example.serverdemo.entity.Cpu"  useGeneratedKeys="true" keyProperty="id">
         insert into cpu(time,ip,context_switches,interrupts,idle,steal,irq,soft_irq,io_wait,sys,user,nice) values(#{time},#{ip},#{context_switches},#{interrupts},#{idle},#{steal},#{irq},#{soft_irq},#{io_wait},#{sys},#{user},#{nice})
     </insert>
+    <select  id="select" parameterType="String" resultType="com.example.serverdemo.entity.Cpu" >
+
+            select * from cpu
+            <where>
+                <if test="startTime != null">
+                    and  time>=#{startTime}
+                </if>
+                <if test="endTime != null">
+                    and time <![CDATA[<=]]>#{endTime}
+                </if>
+            </where>
+
+    </select>
+
+
 
 </mapper>
