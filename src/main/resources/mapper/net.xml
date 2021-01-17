@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.serverdemo.dao.NetDao">
+
+    <insert id="insert" parameterType="com.example.serverdemo.entity.Net"  useGeneratedKeys="true" keyProperty="id">
+        <selectKey keyProperty="id" resultType="int" order="AFTER">
+            SELECT last_insert_id();
+        </selectKey>
+        insert into net(time,ip,sent_Packets,receive_Packets,sent_Bytes,receive_Bytes,receive_Packets_Errors,sent_Packets_Errors,mac_Addr,net_Card_Name)
+        values(#{time},#{ip},#{sentPackets},#{receivePackets},#{sentBytes},#{receiveBytes},#{receivePacketsErrors},#{sentPacketsErrors},#{macAddr}
+        ,#{netCardName})
+    </insert>
+
+</mapper>
