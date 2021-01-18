@@ -2,6 +2,7 @@ package com.example.serverdemo;
 
 
 import com.alibaba.fastjson.JSON;
+import com.example.serverdemo.service.Consumer;
 import org.apache.http.HttpEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
@@ -19,7 +20,7 @@ public class test {
 
 
     @Test
-    public void testGet() throws Exception{
+    public void test1() throws Exception{
         CloseableHttpClient httpClient= HttpClients.createDefault();
         URIBuilder uriBuilder= new URIBuilder("http://127.0.0.1:8888/v1/haha");
         HttpGet get = new HttpGet(uriBuilder.build());
@@ -28,6 +29,8 @@ public class test {
         System.out.println(result);
 
     }
+
+
 
 
 

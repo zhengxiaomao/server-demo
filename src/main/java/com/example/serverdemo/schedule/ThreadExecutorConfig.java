@@ -17,7 +17,7 @@ public class ThreadExecutorConfig {
 
     @Bean(name="taskExecutor2")
     public Executor executor() {
-        System.out.println("启动线程池");
+
         ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
         executor.setCorePoolSize(20);//线程池维护线程的最少数量
         executor.setMaxPoolSize(5000);//线程池维护线程的最大数量

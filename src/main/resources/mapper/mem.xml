@@ -7,7 +7,7 @@
 
 
 
-    <insert id="insert" parameterType="com.example.serverdemo.entity.Mem" >
+    <insert id="insert" parameterType="com.example.serverdemo.entity.Mem" useGeneratedKeys="true" keyProperty="id">
         insert into mem(time,ip,freeMem,totalMem,usedMem) values(#{time},#{ip},#{freeMem},#{totalMem},#{usedMem})
     </insert>
 
